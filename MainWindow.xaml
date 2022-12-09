@@ -1,0 +1,83 @@
+﻿<Window x:Class="VeterinaryClinic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VeterinaryClinic"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Bottom" Height="200">
+                <Grid x:Name="AddSomeOne" Visibility="Hidden">
+                    <Grid Width="600" Height="100">
+                        <Button x:Name="AddApp" Width="200" Height="50" FontSize="20" Content="Add Appointment" HorizontalAlignment="Right" Click="AddApp_Click"/>
+                        <Button x:Name="AddCl" Width="200" Height="50" FontSize="20" Content="Add Client" HorizontalAlignment="Left" Click="AddCl_Click"/>
+                    </Grid>
+                </Grid>
+
+                <Grid x:Name="AddClient" Visibility="Visible">
+                    <Grid Width="800" Height="180">
+                        <Label FontSize="20" Content="Day"/>
+                        <TextBox x:Name="DayBSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Left"/>
+                        <Label FontSize="20" Content="Month" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+                        <TextBox x:Name="MonthBSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+                        <Label FontSize="20" Content="Year" HorizontalAlignment="Center"  Margin="0,0,300,0"/>
+                        <TextBox x:Name="YearBSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Center" Margin="0,0,300,0"/>
+
+
+                        <Label FontSize="20" Content="Diagnosis" HorizontalAlignment="Center" Margin="0,0,100,0"/>
+                        <TextBox x:Name="DiagnosisSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Center" Margin="0,0,100,0"/>
+
+
+                        <Label FontSize="20" Content="Type" HorizontalAlignment="Center" Margin="120,0,0,0"/>
+                        <TextBox x:Name="TypeSet" Width="120" Height="50" FontSize="20" HorizontalAlignment="Center" Margin="120,0,0,0"/>
+                        
+                        <Label FontSize="20" Content="Name" HorizontalAlignment="Right" Margin="0,0,140,0"/>
+                        <TextBox x:Name="NameSet" Width="140" Height="50" FontSize="20" HorizontalAlignment="Right" Margin="0,0,140,0"/>
+                        <Label FontSize="20" Content="Surname" HorizontalAlignment="Right"/>
+                        <TextBox x:Name="SurnameSet" Width="140" Height="50" FontSize="20" HorizontalAlignment="Right"/>
+
+                        <Button Width="200" Height="50" VerticalAlignment="Bottom" Content="Add" FontSize="20" Click="Button_Click_1"/>
+                    </Grid>
+                </Grid>
+
+                <Grid x:Name="AddAppointment" Visibility="Hidden">
+                    <Grid Width="600" Height="180">
+                        <Label FontSize="20" Content="Day"/>
+                        <TextBox x:Name="DaySet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Left"/>
+                        <Label FontSize="20" Content="Month" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+                        <TextBox x:Name="MonthSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+                        <Label FontSize="20" Content="Year" HorizontalAlignment="Center"  Margin="0,0,100,0"/>
+                        <TextBox x:Name="YearSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Center" Margin="0,0,100,0"/>
+
+                        <Label FontSize="20" Content="Hour" HorizontalAlignment="Right" Margin="0,0,100,0"/>
+                        <TextBox x:Name="HourSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Right" Margin="0,0,100,0"/>
+                        <Label FontSize="20" Content="Minute" HorizontalAlignment="Right"/>
+                        <TextBox x:Name="MinuteSet" Width="100" Height="50" FontSize="20" HorizontalAlignment="Right"/>
+
+                        <Button Width="200" Height="50" VerticalAlignment="Bottom" Content="Add" FontSize="20" Click="Button_Click"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            
+            <DataGrid x:Name="Clients" DockPanel.Dock="Left" IsReadOnly="True" MouseLeftButtonUp="Clients_MouseLeftButtonUp" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
+                    <DataGridTextColumn Header="Type of animal" Binding="{Binding TypeOfAnimal}"/>
+                    <DataGridTextColumn Header="Data of birth" Binding="{Binding DateOfBirth}"/>
+                    <DataGridTextColumn Header="Diagnosis" Binding="{Binding Diagnosis}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="AppointmentsGrid" DockPanel.Dock="Left" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Date" Binding="{Binding DateOfAppointment}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </DockPanel>
+    </Grid>
+</Window>
